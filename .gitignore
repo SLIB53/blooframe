@@ -1,0 +1,9 @@
+overlays/frame-system-partition-overlay/lavian/os/*.iso
+
+#
+# Operating Systems
+#
+
+# macOS
+
+.DS_Store
