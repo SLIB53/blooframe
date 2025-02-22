@@ -17,9 +17,9 @@ To begin this process, a live installation media will need to be made. Blooframe
 ``` zsh
 diskutil list | tee /tmp/diskutil-list-before.out
 
-# INTERVENTION: Insert USB drive.
+# INTERVENE: Insert USB drive.
 
-diff /tmp/diskutil-list-before.out <(diskutil list) # INTERVENTION: Take note of the device path (ex '/dev/disk6'). For this tip, store the correct path in the USB_DISK_PATH variable.
+diff /tmp/diskutil-list-before.out <(diskutil list) # INTERVENE: Take note of the device path (ex. '/dev/disk6'). For this tip, store the correct path in the USB_DISK_PATH variable.
 ```
 
 ```sh
@@ -30,17 +30,17 @@ sudo dd if=./overlays/frame-system-partition-overlay/lavian/os/archlinux-2025.02
 Once the media is ready, the target can be set up to handle SSH connections. On the **target**, boot from the installation media, set up OpenSSH, then connect to the same network as the administrator.
 
 ```sh
-passwd root # follow prompt
+passwd root # Follow prompt
 
 echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 ```
 
 ```sh
-iwctl # only for wifi, follow prompt
+iwctl # Only for wifi, follow prompt
 ```
 
 ```sh
-ip address show # INTERVENTION: Take note of the IP address. For this guide, store the correct address in the BLOOFRAME_INSTALL_TARGET_IP variable.
+ip address show # INTERVENE: Take note of the IP address. For this guide, store the correct address in the BLOOFRAME_INSTALL_TARGET_IP variable.
 ```
 
 
@@ -66,7 +66,7 @@ Thanks to the efforts made in prior phases, the entirety of this phase can be ex
 To format the disk, first discover it with `lsblk`, and then pass the disk device name to the `partition.sh` script.
 
 ```sh
-lsblk # INTERVENTION: Take note of the device name. In this example, store the name (ex. 'nvme0n1') in the BLOOFRAME_INSTALL_TARGET_DISK variable.
+lsblk # INTERVENE: Take note of the device name. In this example, store the name (ex. 'nvme0n1') in the BLOOFRAME_INSTALL_TARGET_DISK variable.
 ```
 
 ```sh
@@ -90,7 +90,7 @@ mount --mkdir /dev/$BLOOFRAME_INSTALL_TARGET_DISK'p2' /mnt/fsp \
 Finally, set up the first host, lavian.
 
 ```sh
-FRAME_NVME_DISK=$BLOOFRAME_INSTALL_TARGET_DISK NON_ROOT_USER=bloo sh /mnt/fsp/lavian/setup.sh # follow post-installation advice
+FRAME_NVME_DISK=$BLOOFRAME_INSTALL_TARGET_DISK NON_ROOT_USER=bloo sh /mnt/fsp/lavian/setup.sh # Follow post-installation advice
 ```
 
 Hopefully, this guide has demonstrated an easy way to get a useful home lab environment. If you've followed this guide successfully, you should now have a lab ready to go!
