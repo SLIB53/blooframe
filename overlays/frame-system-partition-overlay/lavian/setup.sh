@@ -53,6 +53,9 @@ HandleLidSwitchDocked=ignore
 EOF
 
 
+# TODO: filesystem support for vfat and ext4
+
+
 # TODO: NVIDIA Drivers
 
 
